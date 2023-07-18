@@ -44,22 +44,24 @@ class ProfileScreen extends StatelessWidget {
                   followers: followers,
                   following: following),
               Expanded(
-                  child: ListView.builder(
-                      physics: BouncingScrollPhysics(),
-                      itemCount: userReposController.repositories.length,
-                      itemBuilder: (BuildContext context, int index) {
-                        var repo =
-                            userReposController.repositories.value[index];
-                        var repoName = repo.name.toString();
-                        var repoLanguage = repo.language.toString();
-                        var repoCreatedAt = repo.created_at.toString();
-                        var repoUpdatedAt = repo.updated_at.toString();
-                        return RepoRow(
-                            repoName: repoName,
-                            repoLanguage: repoLanguage,
-                            repoCreatedAt: repoCreatedAt,
-                            repoUpdatedAt: repoUpdatedAt);
-                      }))
+                  child: Container(
+                margin: EdgeInsets.only(top: 10),
+                child: ListView.builder(
+                    physics: BouncingScrollPhysics(),
+                    itemCount: userReposController.repositories.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      var repo = userReposController.repositories.value[index];
+                      var repoName = repo.name.toString();
+                      var repoLanguage = repo.language.toString();
+                      var repoCreatedAt = repo.created_at.toString();
+                      var repoUpdatedAt = repo.updated_at.toString();
+                      return RepoRow(
+                          repoName: repoName,
+                          repoLanguage: repoLanguage,
+                          repoCreatedAt: repoCreatedAt,
+                          repoUpdatedAt: repoUpdatedAt);
+                    }),
+              ))
             ],
           ),
         ));
@@ -99,8 +101,7 @@ class TopRow extends StatelessWidget {
                   children: [
                     TextButton(
                       onPressed: () {
-                        // print("Repos");
-                        print(followers.toString());
+                        print(repos.toString());
                       },
                       child: Text(
                         repos,

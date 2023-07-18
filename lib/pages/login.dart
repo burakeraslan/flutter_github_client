@@ -36,7 +36,7 @@ class _SearchBox extends StatelessWidget {
 
     return Card(
       margin: EdgeInsets.all(20),
-      elevation: double.tryParse("5"),
+      elevation: double.tryParse("0"),
       child: Padding(
         padding:
             const EdgeInsets.only(top: 40, bottom: 40, left: 20, right: 20),
@@ -56,7 +56,7 @@ class _SearchBox extends StatelessWidget {
               )),
           onChanged: (value) {
             String handleUsername = value;
-            handleUsernameController.updateVariable(handleUsername);
+            handleUsernameController.updateUsername(handleUsername);
           },
           onSubmitted: (value) async {
             await fetchUserProfile();
