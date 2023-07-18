@@ -1,16 +1,17 @@
-# flutter_github_client
+## flutter_github_client
 
-A new Flutter project.
+This project is a client application developed with Flutter that utilizes the GitHub API to view user profiles and search for users.
 
-## Getting Started
+### Features
 
-This project is a starting point for a Flutter application.
+- Ability to log in with a username
+- Bottom Bar Navigation for accessing the profile and search icons
+- Profile page displays avatar, repository followers, and following counts
+- Viewing a list of repositories on the profile page
+- Accessing the user search screen by tapping the search button
+- Utilizes the GetX package
 
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Screenshots:
+| Login | Profile | Following |
+| :----: | :----: | :----: |
+| <img src="https://github.com/burakeraslan/flutter_github_client/assets/110386342/a64d85e0-43b3-402d-bf16-06fa31292f38" alt="login" width="300" /> | <img src="https://github.com/burakeraslan/flutter_github_client/assets/110386342/2e428cd6-fb5c-4cf0-a7f8-e94021cdf671" alt="profile" width="300" /> | <img src="https://github.com/burakeraslan/flutter_github_client/assets/110386342/b5950d42-9eb0-4089-bc73-29b3468db19f" alt="following" width="300" /> |
