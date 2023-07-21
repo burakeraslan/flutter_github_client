@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_github_client/controllers/handle_search_username.dart';
 import 'package:flutter_github_client/controllers/handle_username.dart';
+import 'package:flutter_github_client/controllers/search_user_controller.dart';
+import 'package:flutter_github_client/controllers/selected_profile_controller.dart';
+import 'package:flutter_github_client/controllers/selected_user_repos.dart';
+import 'package:flutter_github_client/controllers/selected_username_controller.dart';
 import 'package:flutter_github_client/controllers/user_following.dart';
 import 'package:flutter_github_client/controllers/user_profile.dart';
 import 'package:flutter_github_client/controllers/user_repos.dart';
@@ -29,10 +34,15 @@ class _SearchBox extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final handleUsernameController = Get.put(HandleUsernameController());
-    final userProfileController = Get.put(UserProfileController());
-    final userReposController = Get.put(UserReposController());
-    final userFollowersController = Get.put(UserFollowersController());
-    final userFollowingController = Get.put(UserFollowingController());
+    Get.put(UserProfileController());
+    Get.put(UserReposController());
+    Get.put(UserFollowersController());
+    Get.put(UserFollowingController());
+    Get.put(HandleSearchUsernameController());
+    Get.put(SearchUserController());
+    Get.put(SelectedUsernameController());
+    Get.put(SelectedProfileController());
+    Get.put(SelectedUserReposController());
 
     return Card(
       margin: EdgeInsets.all(20),

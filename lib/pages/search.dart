@@ -2,18 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_github_client/controllers/handle_search_username.dart';
 import 'package:flutter_github_client/controllers/search_user_controller.dart';
 import 'package:flutter_github_client/controllers/selected_profile_controller.dart';
+import 'package:flutter_github_client/controllers/selected_user_repos.dart';
 import 'package:flutter_github_client/controllers/selected_username_controller.dart';
+import 'package:flutter_github_client/pages/selected_profile.dart';
 import 'package:flutter_github_client/services/fetch_search_user.dart';
 import 'package:flutter_github_client/services/fetch_selected_user_profile.dart';
+import 'package:flutter_github_client/services/fetch_selected_user_repos.dart';
 import 'package:get/get.dart';
 
 class SearchScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Get.put(HandleSearchUsernameController());
-    Get.put(SearchUserController());
-    Get.put(SelectedUsernameController());
-    Get.put(SelectedProfileController());
     final searchUsernameController = Get.find<HandleSearchUsernameController>();
     final searchUserController = Get.find<SearchUserController>();
     final selectedUsernameController = Get.find<SelectedUsernameController>();
@@ -85,6 +84,8 @@ class SearchScreen extends StatelessWidget {
                               selectedUsernameController
                                   .updateSelectedUsername(login);
                               await selectedUserProfile();
+                              await fetchSelectedUserRepo();
+                              Get.to(SelectedProfileScreen());
                             },
                           ),
                         ),
@@ -114,7 +115,17 @@ class SearchScreen extends StatelessWidget {
       final selectedUserProfile =
           await FetchSelectedUserProfile.fetchSelectedUserProfile();
       selectedUserProfileController.updateSelectedProfile(selectedUserProfile);
-      print(selectedUserProfile.login);
+    } catch (e) {
+      print("Error: $e");
+    }
+  }
+
+  Future fetchSelectedUserRepo() async {
+    final selectedUserReposController = Get.find<SelectedUserReposController>();
+    try {
+      final repostories = await FetchSelectedUserRepos.fetchSelectedUserRepos();
+      selectedUserReposController.updateSelectedUserRepos(repostories);
+      // print(selectedUserReposController.repostories.value[0].name);
     } catch (e) {
       print("Error: $e");
     }

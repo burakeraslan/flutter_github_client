@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_github_client/controllers/handle_username.dart';
+import 'package:flutter_github_client/controllers/search_user_controller.dart';
+import 'package:flutter_github_client/controllers/selected_profile_controller.dart';
+import 'package:flutter_github_client/controllers/selected_user_repos.dart';
+import 'package:flutter_github_client/controllers/selected_username_controller.dart';
 import 'package:flutter_github_client/controllers/user_followers.dart';
-import 'package:flutter_github_client/pages/home.dart';
+import 'package:flutter_github_client/pages/selected_profile.dart';
+import 'package:flutter_github_client/services/fetch_search_user.dart';
+import 'package:flutter_github_client/services/fetch_selected_user_profile.dart';
+import 'package:flutter_github_client/services/fetch_selected_user_repos.dart';
 import 'package:get/get.dart';
 
 class FollowersScreen extends StatelessWidget {
   final usernameController = Get.find<HandleUsernameController>();
   final followersController = Get.find<UserFollowersController>();
+  final selectedUsernameController = Get.find<SelectedUsernameController>();
+
   @override
   Widget build(BuildContext context) {
     var username = usernameController.username.value;
@@ -35,13 +44,47 @@ class FollowersScreen extends StatelessWidget {
                 child: ListTile(
                   leading: CircleAvatar(backgroundImage: NetworkImage(photo)),
                   title: Text(login),
-                  onTap: () {
-                    print(login);
+                  onTap: () async {
+                    selectedUsernameController.updateSelectedUsername(login);
+                    await selectedUserProfile();
+                    await fetchSelectedUserRepo();
+                    Get.to(SelectedProfileScreen());
                   },
                 ),
               ),
             );
           }),
     );
+  }
+
+  Future fetchSearchUser() async {
+    final searchUserController = Get.find<SearchUserController>();
+    try {
+      final list = await FetchSearchUser.fetchSearchUser();
+      searchUserController.searchedList(list);
+    } catch (e) {
+      print("Error: $e");
+    }
+  }
+
+  Future selectedUserProfile() async {
+    final selectedUserProfileController = Get.find<SelectedProfileController>();
+    try {
+      final selectedUserProfile =
+          await FetchSelectedUserProfile.fetchSelectedUserProfile();
+      selectedUserProfileController.updateSelectedProfile(selectedUserProfile);
+    } catch (e) {
+      print("Error: $e");
+    }
+  }
+
+  Future fetchSelectedUserRepo() async {
+    final selectedUserReposController = Get.find<SelectedUserReposController>();
+    try {
+      final repostories = await FetchSelectedUserRepos.fetchSelectedUserRepos();
+      selectedUserReposController.updateSelectedUserRepos(repostories);
+    } catch (e) {
+      print("Error: $e");
+    }
   }
 }
