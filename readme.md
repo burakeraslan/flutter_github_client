@@ -12,6 +12,6 @@ This project is a client application developed with Flutter that utilizes the Gi
 - Utilizes the GetX package
 
 ### Screenshots:
-| Login | Profile | Following |
-| :----: | :----: | :----: |
-| <img src="https://github.com/burakeraslan/flutter_github_client/assets/110386342/a64d85e0-43b3-402d-bf16-06fa31292f38" alt="login" width="300" /> | <img src="https://github.com/burakeraslan/flutter_github_client/assets/110386342/2e428cd6-fb5c-4cf0-a7f8-e94021cdf671" alt="profile" width="300" /> | <img src="https://github.com/burakeraslan/flutter_github_client/assets/110386342/b5950d42-9eb0-4089-bc73-29b3468db19f" alt="following" width="300" /> |
+| Login | Profile | Following | Search |
+| :----: | :----: | :----: | :---: |
+| <img src="https://github.com/burakeraslan/flutter_github_client/assets/110386342/a64d85e0-43b3-402d-bf16-06fa31292f38" alt="login" width="250" /> | <img src="https://github.com/burakeraslan/flutter_github_client/assets/110386342/2e428cd6-fb5c-4cf0-a7f8-e94021cdf671" alt="profile" width="250" /> | <img src="https://github.com/burakeraslan/flutter_github_client/assets/110386342/b5950d42-9eb0-4089-bc73-29b3468db19f" alt="following" width="250" /> | <img src="https://github.com/burakeraslan/flutter_github_client/assets/110386342/8bddace3-f384-440b-b540-9004e5225f67" alt="search" width="250" />
