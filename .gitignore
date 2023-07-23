@@ -43,21 +43,22 @@ app.*.map.json
 /android/app/profile
 /android/app/release
 
-# ///
-.dart_tool
-.idea
-android
-ios
-linux
-macos
-test
-web
-windows
-.metadata
-analysis_options.yaml
-flutter_github_client.iml
-pubspec.lock
-pubspec.yaml
+# # ///
+# .dart_tool
+# .idea
+# android
+# ios
+# linux
+# macos
+# test
+# web
+# windows
+# .metadata
+# analysis_options.yaml
+# flutter_github_client.iml
+# pubspec.lock
+# pubspec.yaml
 following.png
 login.png
 profile.png
+search.png
